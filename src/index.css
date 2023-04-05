@@ -1,0 +1,134 @@
+:root {
+  --gradient-col1: #FFB3FF;
+  --gradient-col2: #FFB3B3;
+
+  --bg-black: #000000;
+  --bg-black-2: #1d1d1d;
+  --bg-gray: #2f2f2f;
+  --bg-gray-2: #3f3f3f;
+
+  --note-lime: #9DD376;
+  --note-seafoam: #BEEDDD;
+  --note-salmon: #f6a694;
+  --note-royal: #A0CAEC;
+  --note-pink: #EE6096;
+  --note-yellow: #ECE457;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-black);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-add-note {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 100%;
+  background: linear-gradient(90deg, var(--gradient-col1), var(--gradient-col2));
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  margin: 2rem 2rem 1rem 0;
+  transition: transform 300ms;
+}
+
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.note {
+  background-color: var(--note-seafoam);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 1rem;
+  min-height: 170px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: pre-wrap
+}
+.new {
+  background-color: var(--note-royal);
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: inherit;
+}
+
+textarea:focus { 
+  outline: none; 
+}
+
+.btn-save {
+  background-color: var(--bg-gray);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+.btn-save:hover{
+  cursor: pointer;
+  background-color: var(--bg-gray-2);
+}
+
+.delete-icon:hover { cursor: pointer; width: 1.35em; height: 1.35em}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+small { cursor: default }
+
+.search-add-note-container {
+  display: flex;
+  flex: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 1rem 1rem 2rem;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: white;
+}
+.search-bar { border: none; }
+.search-bar:focus { outline: none; }
+
+h1 { color:white; text-align: center;}
