@@ -3,10 +3,12 @@ import { useState } from 'react';
 const AddNote = ({ handleAddNote }) => {
 
     const [noteText, setTextNote] = useState('');
-    const characterLimit = 200;
+    const characterLimit = 280;
 
     const handleChange = (event) => {
-        setTextNote(event.target.value);
+        if (characterLimit - event.target.value.length >= 0) {
+            setTextNote(event.target.value);
+        }
     };
 
     const saveNote = () => {
@@ -15,7 +17,7 @@ const AddNote = ({ handleAddNote }) => {
     };
 
     return (
-        <div className="note new">
+        <div id="new-note" className="note new">
             <textarea 
                 rows="8" 
                 cols="10" 

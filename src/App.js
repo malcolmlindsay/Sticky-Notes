@@ -52,25 +52,40 @@ const App = () => {
 
   const toggleAddActive = () => {
     const addBtnEl = document.getElementsByClassName('btn-add-note')[0];
+    const colSelect = document.getElementsByClassName('select-note-color')[0];
+    !addActive ? colSelect.style.opacity = "1" :colSelect.style.opacity = "";
+    !addActive ? colSelect.style.pointerEvents = "all" :colSelect.style.pointerEvents = "";
     !addActive ? addBtnEl.style.transform = "rotate(45deg)" : addBtnEl.style.transform = "rotate(0deg)";
     setAddActive(!addActive);
   };
 
   return (
     <div className="main-container">
-      <h1>Sticky Notes</h1>
+      <h1 className="app-title">
+        <span>S</span><span>T</span><span>I</span><span>C</span><span>K</span><span>Y</span>
+        <span> N</span><span>O</span><span>T</span><span>E</span><span>S</span>
+      </h1>
       <div className="search-add-note-container">
         <Search handleSearchNote={setSearchText}/>
         <button className="btn-add-note">
         <FiPlus onClick={toggleAddActive} size="2rem"/>
       </button>
       </div>
+      <div className="select-note-color">
+                <div className="color-select"></div>
+                <div className="color-select"></div>
+                <div className="color-select"></div>
+                <div className="color-select"></div>
+                <div className="color-select"></div>
+                <div className="color-select"></div>
+            </div>
       <div className="app-container">
       <NotesList 
         handleAddNote={addNote} 
         handleDeleteNote={deleteNote} 
-        notes={notes.filter((note)=> note.text.toLowerCase().includes(searchText))}
-        addActive={addActive}/>
+        notes={notes.filter((note)=> note.text.toLowerCase().includes(searchText.toLowerCase()))}
+        addActive={addActive}
+      />
     </div>
     </div>
   );
