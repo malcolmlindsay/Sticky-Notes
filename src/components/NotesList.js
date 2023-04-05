@@ -11,6 +11,7 @@ const NotesList = ({ notes, handleAddNote, handleDeleteNote, addActive }) => {
                 id={note.id} 
                 text={note.text} 
                 date={note.date}
+                bgCol={note.color}
                 handleDeleteNote={handleDeleteNote}   
             />)}
         </div>

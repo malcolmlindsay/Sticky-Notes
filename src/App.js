@@ -11,7 +11,8 @@ const App = () => {
     {
       id: nanoid(),
       text: "Save this note for later",
-      date: "04/04/2023"
+      date: "04/04/2023",
+      color: "var(--note-royal)"
     }
   ])
 
@@ -33,12 +34,13 @@ const App = () => {
 );
   }, [notes]);
 
-  const addNote = (text) => {
+  const addNote = (text, color) => {
     const date = new Date();
     const newNote = {
       id: nanoid(),
       text: text,
-      date: date.toLocaleDateString()
+      date: date.toLocaleDateString(),
+      color: color
     }
     const newNotes = [newNote, ...notes];
     setNotes(newNotes);
@@ -52,9 +54,6 @@ const App = () => {
 
   const toggleAddActive = () => {
     const addBtnEl = document.getElementsByClassName('btn-add-note')[0];
-    const colSelect = document.getElementsByClassName('select-note-color')[0];
-    !addActive ? colSelect.style.opacity = "1" :colSelect.style.opacity = "";
-    !addActive ? colSelect.style.pointerEvents = "all" :colSelect.style.pointerEvents = "";
     !addActive ? addBtnEl.style.transform = "rotate(45deg)" : addBtnEl.style.transform = "rotate(0deg)";
     setAddActive(!addActive);
   };
@@ -71,14 +70,6 @@ const App = () => {
         <FiPlus onClick={toggleAddActive} size="2rem"/>
       </button>
       </div>
-      <div className="select-note-color">
-                <div className="color-select"></div>
-                <div className="color-select"></div>
-                <div className="color-select"></div>
-                <div className="color-select"></div>
-                <div className="color-select"></div>
-                <div className="color-select"></div>
-            </div>
       <div className="app-container">
       <NotesList 
         handleAddNote={addNote} 
